@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Management App</title>
+    <link rel="stylesheet" href="ProjectManagementApp.css">
+</head>
+<body>
+    <header>
+        <h1>Project Management App</h1>
+        <nav>
+            <ul>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#tasks">Tasks</a></li>
+                <li><a href="#kanban">Kanban Board</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Projects Section -->
+        <section id="projects" class="full-screen-section">
+            <div class="section-description">
+                <h2>Projects</h2>
+                <p>Create and manage your projects here.</p>
+            </div>
+            <div class="project-form-container">
+                <form id="project-form">
+                    <div class="form-group">
+                        <label for="project-name">Project Name:</label>
+                        <input type="text" id="project-name" placeholder="Enter project name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="project-desc">Project Description:</label>
+                        <textarea id="project-desc" placeholder="Enter project description"></textarea>
+                    </div>
+                    <button type="submit">Add Project</button>
+                </form>
+            </div>
+            <div class="project-list-container">
+                <h3>Saved Projects:</h3>
+                <ul id="projects-list"></ul>
+            </div>
+        </section>
+
+        <!-- Tasks Section -->
+        <section id="tasks" class="full-screen-section right-section">
+            <div class="section-description">
+                <h2>Tasks</h2>
+                <p>Create tasks and assign them to projects.</p>
+            </div>
+            <div class="task-form-container">
+                <form id="task-form">
+                    <div class="form-group">
+                        <label for="task-title">Task Title:</label>
+                        <input type="text" id="task-title" placeholder="Enter task title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="task-project">Assign to Project:</label>
+                        <select id="task-project" required></select>
+                    </div>
+                    <div class="form-group">
+                        <label for="task-status">Task Status:</label>
+                        <select id="task-status" required>
+                            <option value="Open">Open</option>
+                            <option value="In Progress">In Progress</option>
+                            <option value="Completed">Completed</option>
+                        </select>
+                    </div>
+                    <button type="submit">Add Task</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Kanban Board Section -->
+        <section id="kanban" class="full-screen-section">
+            <div class="section-description">
+                <h2>Kanban Board</h2>
+                <p>Visualize your tasks on a Kanban board to track progress and workflow efficiently.</p>
+            </div>
+            <div class="kanban-board">
+                <div class="board-column">
+                    <h3>Open</h3>
+                    <ul id="open-tasks"></ul>
+                </div>
+                <div class="board-column">
+                    <h3>In Progress</h3>
+                    <ul id="in-progress-tasks"></ul>
+                </div>
+                <div class="board-column">
+                    <h3>Completed</h3>
+                    <ul id="completed-tasks"></ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- JavaScript -->
+    <script src="ProjectManagementApp.js"></script>
+
+</body>
+</html>
