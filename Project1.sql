@@ -1,0 +1,45 @@
+CREATE TABLE Users (
+    UserID INT PRIMARY KEY IDENTITY(1,1),
+    Username NVARCHAR(255) NOT NULL,
+    Email NVARCHAR(255) UNIQUE NOT NULL,
+    PasswordHash NVARCHAR(255) NOT NULL
+);
+
+CREATE TABLE Projects (
+    ProjectID INT PRIMARY KEY IDENTITY(1,1),
+    ProjectName NVARCHAR(255) NOT NULL,
+    Description NVARCHAR(MAX),
+    CreatedAt DATETIME DEFAULT GETDATE()
+);
+
+CREATE TABLE Tasks (
+    TaskID INT PRIMARY KEY IDENTITY(1,1),
+    ProjectID INT FOREIGN KEY REFERENCES Projects(ProjectID),
+    Title NVARCHAR(255) NOT NULL,
+    Description NVARCHAR(MAX),
+    EstimatedHours INT,
+    Status NVARCHAR(50) CHECK(Status IN ('Open', 'In Progress', 'Completed')),
+    CreatedAt DATETIME DEFAULT GETDATE()
+);
+
+CREATE TABLE TaskAssignments (
+    AssignmentID INT PRIMARY KEY IDENTITY(1,1),
+    TaskID INT FOREIGN KEY REFERENCES Tasks(TaskID),
+    UserID INT FOREIGN KEY REFERENCES Users(UserID)
+);
+
+CREATE TABLE Comments (
+    CommentID INT PRIMARY KEY IDENTITY(1,1),
+    TaskID INT FOREIGN KEY REFERENCES Tasks(TaskID),
+    UserID INT FOREIGN KEY REFERENCES Users(UserID),
+    CommentText NVARCHAR(MAX),
+    CreatedAt DATETIME DEFAULT GETDATE()
+);
+
+CREATE TABLE TimeLogs (
+    LogID INT PRIMARY KEY IDENTITY(1,1),
+    TaskID INT FOREIGN KEY REFERENCES Tasks(TaskID),
+    UserID INT FOREIGN KEY REFERENCES Users(UserID),
+    HoursLogged INT,
+    LogDate DATETIME DEFAULT GETDATE()
+);
