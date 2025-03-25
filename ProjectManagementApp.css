@@ -1,0 +1,185 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #0a0a23; /* Deep Black-Blue Background */
+    color: #ffffff; /* White text for readability */
+}
+
+/* Header Styles */
+/* Header Styles */
+header {
+    background: linear-gradient(90deg, #1e3a8a, #2563eb); /* Gradient Blue */
+    color: #ffffff;
+    padding: 20px;
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Distribute elements horizontally */
+    align-items: center; /* Align vertically */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5); /* Add depth */
+    position: sticky; /* Make header sticky */
+    top: 0; /* Position at the top of the viewport */
+    z-index: 1000; /* Ensure it stays on top of other elements */
+}
+
+header h1 {
+    font-size: 2.5rem;
+    animation: fadeInDown 1s ease-in-out; /* Animation for header */
+}
+
+/* Navigation Styles */
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0; /* Remove margin */
+    display: flex;
+    gap: 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}
+
+nav ul li a:hover {
+    color: #60a5fa; /* Lighter Blue on hover */
+}
+
+/* Main Content Styles */
+main {
+    padding: 20px;
+}
+
+.full-screen-section {
+    height: 110vh; /* Make each section full-screen */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.section-description {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.section-description h2 {
+    font-size: 2.5rem;
+    color: #60a5fa; /* Light Blue Section Headers */
+}
+
+.section-description p {
+    font-size: 1.2rem;
+    color: #ffffff;
+}
+
+.project-form-container,
+.task-form-container {
+    width: 50%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #1e293b; /* Dark Blue Background for Forms */
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5); /* Add depth */
+    text-align: center; /* Center form elements */
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 50%; /* Shorten input width */
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #111827; /* Very Dark Blue Background for Inputs */
+    color: #ffffff; /* White Text */
+    margin: 0 auto; /* Center inputs */
+    display: block; /* Ensure block display for centering */
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #60a5fa; /* Light Blue Placeholder Text */
+}
+
+button[type="submit"] {
+    background-color: #2563eb; /* Bright Blue Button */
+    color: white;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 auto; /* Center button */
+    display: block; /* Ensure block display for centering */
+}
+
+button[type="submit"]:hover {
+    background-color: #1e40af; /* Darker Blue on Hover */
+}
+
+.project-list-container,
+.task-list-container {
+    width: 50%;
+    margin: 0 auto;
+}
+
+#projects-list,
+#tasks-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+#projects-list li,
+#tasks-list li {
+    background-color: #1e293b; /* Dark Blue Background for Items */
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Kanban Board Styles */
+.kanban-board {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.board-column {
+    width: 30%;
+    background-color: #111827; /* Very Dark Blue Background for Columns */
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.board-column h3 {
+    color: #60a5fa; /* Light Blue Column Headers */
+}
+
+.board-column ul li {
+    background-color: #1e293b; /* Darker Task Backgrounds in Kanban Board */
+}
+
+/* Animations */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
